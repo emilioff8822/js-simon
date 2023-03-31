@@ -86,11 +86,10 @@ numeriCasuali
               startButton.disabled = true;
               generaNumeriCasuali();
               visualizzaNumeri();
-              setTimeout(function() {
-                  nascondiNumeri();
-                  setTimeout(gioca, 5000);
-              }, 5000);
-          }
+              
+              setTimeout (nascondiNumeri ,5000);
+              setTimeout(gioca, 10000);
+             }
 
           function generaNumeroCasuale(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
@@ -106,3 +105,8 @@ numeriCasuali
                 }
             }
         }
+
+        
+        
+        
+
