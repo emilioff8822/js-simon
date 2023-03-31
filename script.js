@@ -26,4 +26,27 @@ numeriCasuali
 let numeriCasuali = [];
 
 
-function generaNumeroCasuale (mi)
+function generaNumeroCasuale (min , max) {
+return Math.floor (Math.random () * (max - min +1) + min  );
+}
+
+function generaNumeriCasuali (){
+  numeriCasuali = [];
+  
+  while (numeriCasuali.length <5){
+    let numero = generaNumeroCasuale (1, 10);
+    if (!numeriCasuali.includes (numero)){
+      numeriCasuali.push(numero);
+
+ }
+
+  }
+
+}
+
+// faccio comparire i numeri casuali
+
+function visualizzaNumeri () {
+
+  
+}
