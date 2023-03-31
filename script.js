@@ -36,20 +36,7 @@ numeriCasuali
         // Genera un numero casuale 
 
 
-        function generaNumeroCasuale(min, max) {
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        }
-
-        // Genera un array di 5 numeri casuali tra 1 e 10
-        function generaNumeriCasuali() {
-            numeriCasuali = [];
-            while (numeriCasuali.length < 5) {
-                let numero = generaNumeroCasuale(1, 10);
-                if (!numeriCasuali.includes(numero)) {
-                    numeriCasuali.push(numero);
-                }
-            }
-        }
+      
 
         // Mostra i numeri casuali generati nel div 
 
@@ -69,7 +56,7 @@ numeriCasuali
         function gioca() {
             let numeriIndovinati = [];
             for (let i = 0; i < 5; i++) {
-                let numeroUtente = parseInt(prompt("Inserisci il numero " + (i+1) + " che hai visto prima:"));
+                let numeroUtente = parseInt(prompt("Inserisci il " + (i+1)  + " º numero che hai visto prima:"));
                 if (numeriCasuali.includes(numeroUtente)) {
                     numeriIndovinati.push(numeroUtente);
                 }
@@ -86,19 +73,36 @@ numeriCasuali
             startButton.disabled = false;
         }
 
-        // Inizia il gioco, mostrando i numeri e nascondendoli dopo 5 secondi
-       
-        function iniziaGioco() {
-            const startButton = document.getElementById("start-button");
-            startButton.disabled = true;
-            generaNumeriCasuali();
-            visualizzaNumeri();
-            setTimeout(function() {
-                nascondiNumeri();
-                setTimeout(gioca, 5000);
-            }, 5000);
-        }
+   
 
         // start con event listener
         const startButton = document.getElementById("start-button");
         startButton.addEventListener("click", iniziaGioco);
+
+             // Inizia il gioco, mostrando i numeri e nascondendoli dopo 5 secondi
+       
+             function iniziaGioco() {
+              const startButton = document.getElementById("start-button");
+              startButton.disabled = true;
+              generaNumeriCasuali();
+              visualizzaNumeri();
+              setTimeout(function() {
+                  nascondiNumeri();
+                  setTimeout(gioca, 5000);
+              }, 5000);
+          }
+
+          function generaNumeroCasuale(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        // Genera un array di 5 numeri casuali tra 1 e 10
+        function generaNumeriCasuali() {
+            numeriCasuali = [];
+            while (numeriCasuali.length < 5) {
+                let numero = generaNumeroCasuale(1, 10);
+                if (!numeriCasuali.includes(numero)) {
+                    numeriCasuali.push(numero);
+                }
+            }
+        }
